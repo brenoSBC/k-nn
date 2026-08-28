@@ -76,11 +76,11 @@ string knn(vector<Data>& datas, Data new_data, int K) {
     int versicolor{};
     int virginica{};
     for(int j = 0; j < K; j++) {    
-        if(datas[j].type == hasher("setosa")) {
+        if(datas[j].type == static_cast<int>(hasher("setosa"))) {
             setosa++;
-        } else if(datas[j].type == hasher("versicolor")) {
+        } else if(datas[j].type == static_cast<int>(hasher("versicolor"))) {
             versicolor++;
-        } else if(datas[j].type == hasher("virginica")) {
+        } else if(datas[j].type == static_cast<int>(hasher("virginica"))) {
             virginica++;
         }
     }
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 
     read_dataset(training_dataset_path, datas);   
 
-    Data new_data(100, 100);
+    Data new_data(1, 1);
 
     string result = knn(datas, new_data, 1);
     cout << result << endl;
